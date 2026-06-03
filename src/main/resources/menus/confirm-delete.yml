@@ -1,0 +1,86 @@
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                           Maynat-Home Menu Tutorial                ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+#
+# This file configures the confirm-delete menu layout. Below is a guide to placeholders
+# and item configuration options.
+#
+# ─── Internal Placeholders ─────────────────────────────────────────────────
+# These are built-in placeholders replaced by the plugin:
+#   <home>    - The display name of the home being deleted
+#   <world>   - The world name where the home is located
+#   <coords>  - Formatted coordinates (x, y, z)
+#
+# ─── PlaceholderAPI Support ───────────────────────────────────────────────
+# All text fields (titles, display names, lore) support PlaceholderAPI placeholders.
+# Examples: %player_name%, %vault_eco_balance%, etc.
+#
+# ─── Item Configuration Options ───────────────────────────────────────────
+# material:     Material name (e.g., DIAMOND_SWORD, PLAYER_HEAD)
+# base64:       Base64 string for custom player head texture
+# display-name: Item name in MiniMessage format (supports placeholders)
+# lore:         List of lore lines in MiniMessage format (supports placeholders)
+# display-mode: BOTH (show name and lore), TITLE (name only), MESSAGE (lore only)
+# hide-details: true/false - Hide name and lore completely
+# hide_tooltip: true/false - Hide all tooltip info (name, lore, attributes, etc.)
+# item_flags:   List of ItemFlag names to hide (e.g., HIDE_ENCHANTS, HIDE_ATTRIBUTES)
+# action:       CONFIRM_DELETE, CANCEL, CLOSE, etc.
+#
+# ─── Model Item Example ───────────────────────────────────────────────────
+# warning:
+#   slot: 13
+#   material: RED_STAINED_GLASS_PANE
+#   display-name: "<red><bold>Delete <home>?</bold></red>"
+#   lore:
+#     - "<gray>World: <world>"
+#     - "<gray>Location: <coords>"
+#     - "<gray>This action cannot be undone!"
+#   hide_tooltip: false
+#   item_flags:
+#     - HIDE_ADDITIONAL_TOOLTIP
+#   action: NONE
+#
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                   Maynat-Home — confirm-delete.yml             ║
+# ║   Alternate confirmation layout with centered action buttons.     ║
+# ╚══════════════════════════════════════════════════════════╝
+
+# Inventory title — MiniMessage format
+title: "<reset><gradient:#ff5555:#ff0000><bold>Confirm Delete</bold></gradient>"
+
+rows: 3
+
+filler:
+  enabled: true
+  material: BLACK_STAINED_GLASS_PANE
+  hide-details: true
+  item_flags:
+    - HIDE_ADDITIONAL_TOOLTIP
+
+items:
+  warning:
+    slot: 13
+    material: RED_STAINED_GLASS_PANE
+    item_flags:
+      - HIDE_ADDITIONAL_TOOLTIP
+    display-name: "<reset><red><bold>Are you sure?</bold></red>"
+    lore:
+      - "<reset><gray>Delete home <white><home></white> permanently."
+      - "<reset><gray>This action cannot be undone."
+    action: NONE
+
+  confirm:
+    slot: 11
+    material: GREEN_WOOL
+    display-name: "<reset><green><bold>Confirm</bold></green>"
+    lore:
+      - "<reset><gray>Delete this home now."
+    action: CONFIRM_DELETE
+
+  cancel:
+    slot: 15
+    material: RED_WOOL
+    display-name: "<reset><red><bold>Cancel</bold></red>"
+    lore:
+      - "<reset><gray>Keep the home and close."
+    action: CANCEL

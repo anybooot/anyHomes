@@ -1,0 +1,65 @@
+# ╔═══════════════════════════════════════════════════════════╗
+# ║        Maynat-Home — messages.yml                        ║
+# ║  All plugin strings. MiniMessage format supported.       ║
+# ║  Gradients, hex colors, and PAPI placeholders work here. ║
+# ╚═══════════════════════════════════════════════════════════╝
+# MiniMessage reference: https://docs.advntr.dev/minimessage/
+
+# ─── Prefix ──────────────────────────────────────────────────────────────────
+prefix: "<dark_gray>[</dark_gray><gradient:#00fbff:#0072ff><bold>MaynatHome</bold></gradient><dark_gray>]</dark_gray> "
+
+# ─── General ─────────────────────────────────────────────────────────────────
+general:
+  no-permission:     "<prefix><red>You don't have permission to do that."
+  player-only:       "<prefix><red>This command can only be run by a player."
+  unknown-command:   "<prefix><red>Unknown command. Use <gold>/maynat-home</gold> for help."
+  error:             "<prefix><red>An internal error occurred. Please contact an administrator."
+
+# ─── Home ────────────────────────────────────────────────────────────────────
+home:
+  # /sethome
+  set:             "<prefix><gradient:#00fbff:#0072ff>Home <bold><home></bold></gradient> <green>has been set!"
+  set-failed:      "<prefix><red>Failed to save your home. Please try again."
+  invalid-name:    "<prefix><red>Invalid home name. Use only letters, numbers, <gray>-</gray> and <gray>_</gray> (max 32 chars)."
+  limit-reached:   "<prefix><red>You have reached your home limit <gold>(<limit> homes)</gold>."
+  rename.prompt:   "<prefix><gray>Type the new name for <gold><home></gold> in chat, or type <white>cancel</white> to abort."
+  rename.success:  "<prefix><green>Home <gold><old></gold> has been renamed to <gold><new></gold>."
+  rename.exists:   "<prefix><red>A home with that name already exists. Pick a different name."
+  rename.cancelled: "<prefix><gray>Home rename cancelled."
+  rename.nochange:  "<prefix><gray>The home name was unchanged." 
+
+  # /home
+  not-found:       "<prefix><red>Home <gold><home></gold> was not found."
+  teleported:      "<prefix><gradient:#00fbff:#0072ff>Teleported to home <bold><home></bold>.</gradient>"
+  teleport-failed: "<prefix><red>Teleportation failed. Is the world loaded?"
+
+  warmup-start:    "<prefix><gray>Stand still for <gradient:#00fbff:#0072ff><bold><seconds>s</bold></gradient><gray> to teleport to <white><home></white>..."
+  warmup-cancelled: "<prefix><red>Teleportation cancelled — <bold>you moved!</bold>"
+
+  cooldown:        "<prefix><red>You must wait <gold><seconds>s</gold> before teleporting again."
+
+  # /delhome
+  deleted:         "<prefix><red>Home <gold><home></gold> has been deleted."
+  delhome-usage:   "<prefix><gray>Usage: <white>/delhome <name></white>"
+
+  # /list
+  list-empty:      "<prefix><gray>You have no homes set. Use <white>/sethome [name]</white> to create one."
+  list-header:     "<newline><gradient:#00fbff:#0072ff>━━━ Your Homes (<count>) ━━━</gradient>"
+  list-entry:      " <dark_gray>▸</dark_gray> <gradient:#00fbff:#0072ff><home></gradient> <dark_gray>|</dark_gray> <gray><world> <dark_gray>(<coords>)</dark_gray>"
+
+# ─── Admin ───────────────────────────────────────────────────────────────────
+admin:
+  usage: |
+    <gradient:#00fbff:#0072ff>━━━ MaynatHome Admin ━━━</gradient>
+    <gray>/maynat-home admin reload</gray>
+    <gray>/maynat-home admin delhome <player> <home></gray>
+    <gray>/maynat-home admin home <player> [home]</gray>
+  reloaded:          "<prefix><green>Configuration and menus reloaded successfully."
+  player-not-found:  "<prefix><red>Player <gold><player></gold> not found."
+  home-deleted:      "<prefix><green>Deleted home <gold><home></gold> for <white><player></white>."
+  home-not-found:    "<prefix><red>Player <gold><player></gold> has no home named <white><home></white>."
+  delhome-usage:     "<prefix><gray>Usage: <white>/maynat-home admin delhome <player> <home></white>"
+  home-usage:        "<prefix><gray>Usage: <white>/maynat-home admin home <player> [home]</white>"
+  player-no-homes:   "<prefix><gray>Player <white><player></white> has no homes set."
+  player-homes-header: "<newline><gradient:#00fbff:#0072ff>━━━ Homes of <player> (<count>) ━━━</gradient>"
+  teleported-to-home: "<prefix><gradient:#00fbff:#0072ff>Teleported to <bold><home></bold> of <white><player></white>.</gradient>"

@@ -1,0 +1,80 @@
+# ╔═══════════════════════════════════════════════════════════╗
+# ║           Maynat-Home — config.yml                    ║
+# ║  High-End Home Management System  |  v1.0.0              ║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# ─── Database ────────────────────────────────────────────────────────────────
+database:
+  # Storage type: "sqlite" (local file) or "mysql" (remote server)
+  type: sqlite
+
+  mysql:
+    host: localhost
+    port: 3306
+    database: m_home
+    user: root
+    password: ''
+    ssl: false
+    # Maximum number of connections in the HikariCP pool
+    pool-size: 10
+
+# ─── Homes ───────────────────────────────────────────────────────────────────
+homes:
+  # Default home limit when LuckPerms meta-key "home-limit" is not set.
+  # Set via LuckPerms: /lp user <name> meta set home-limit 10
+  default-limit: 3
+
+  # Whether home names are case-insensitive (stored lowercase)
+  case-insensitive: true
+
+  # Regex pattern for valid home names
+  name-pattern: "[a-zA-Z0-9_-]{1,32}"
+
+# ─── Teleport ────────────────────────────────────────────────────────────────
+teleport:
+  # Warmup countdown (seconds) before teleportation. Set to 0 to disable.
+  # Bypass permission: maynathome.bypass.warmup
+  warmup-seconds: 3
+
+  # Cooldown (seconds) between teleportations. Set to 0 to disable.
+  # Bypass permission: maynathome.bypass.cooldown
+  cooldown-seconds: 30
+
+  # Maximum allowed movement (blocks) during warmup before cancellation.
+  # This is horizontal (XZ) distance only.
+  move-cancel-threshold: 0.3
+
+# ─── GUI ─────────────────────────────────────────────────────────────────────
+gui:
+  # Open a GUI for /homes instead of printing a text list
+  homes-list-enabled: true
+
+  # Home menu pagination settings
+  homes-menu:
+    # Enable pagination when there are more homes than available slots
+    pagination-enabled: true
+    
+    # Show page number in title (e.g., <1/5>) when pagination is enabled
+    show-page-indicator: true
+    
+    # Page indicator format: use <page> for current page and <max> for max pages
+    page-indicator-format: " <page>/<max>"
+
+# ─── Permissions ─────────────────────────────────────────────────────────────
+permissions:
+  # Permission to use the main command
+  use: "maynat-home.use"
+
+  # Sub-command permissions
+  sethome: "maynat-home.sethome"
+  home: "maynat-home.home"
+  delhome: "maynat-home.delhome"
+  rename: "maynat-home.rename"
+  list: "maynat-home.list"
+  admin: "maynat-home.admin"
+
+  # Bypass permissions
+  bypass:
+    limit: "maynat-home.bypass.limit"
+    cooldown: "maynat-home.bypass.cooldown"
+    warmup: "maynat-home.bypass.warmup"

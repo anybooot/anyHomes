@@ -1,0 +1,98 @@
+name: Maynat-Home
+version: '1.0.0'
+main: dev.maynat.home.App
+api-version: '1.21'
+description: High-End Home Management System
+authors: [ MaynatDev ]
+website: https://anyboot.ct.ws/plugins/maynat-home
+
+depend: [ ]
+softdepend: [ LuckPerms, PlaceholderAPI ]
+
+# ─── Commands ────────────────────────────────────────────────────────────────
+
+commands:
+  maynat-home:
+    description: Main Maynat-Home command
+    usage: /maynat-home <sethome|home|delhome|list|admin>
+    aliases: [ mh ]
+    permission: maynat-home.use
+
+  sethome:
+    description: Set a home at your current location
+    usage: /sethome [name]
+    permission: maynat-home.sethome
+
+  home:
+    description: Teleport to a saved home
+    usage: /home [name]
+    permission: maynat-home.home
+
+  delhome:
+    description: Delete a saved home
+    usage: /delhome <name>
+    permission: maynat-home.delhome
+
+  homes:
+    description: List all your saved homes
+    usage: /homes
+    permission: maynat-home.list
+
+# ─── Permissions ─────────────────────────────────────────────────────────────
+
+permissions:
+
+  maynat-home.*:
+    description: Full access to all Maynat-Home features
+    default: op
+    children:
+      maynat-home.use: true
+      maynat-home.sethome: true
+      maynat-home.home: true
+      maynat-home.rename: true
+      maynat-home.delhome: true
+      maynat-home.list: true
+      maynat-home.admin: true
+      maynat-home.bypass.cooldown: true
+      maynat-home.bypass.warmup: true
+      maynat-home.bypass.limit: true
+
+  maynat-home.use:
+    description: Access to the base /maynat-home command
+    default: true
+
+  maynat-home.sethome:
+    description: Allow setting homes
+    default: true
+
+  maynat-home.home:
+    description: Allow teleporting to homes
+    default: true
+
+  maynat-home.rename:
+    description: Allow renaming homes from the GUI
+    default: true
+
+  maynat-home.delhome:
+    description: Allow deleting homes
+    default: true
+
+  maynat-home.list:
+    description: Allow listing homes
+    default: true
+
+  maynat-home.admin:
+    description: Allow admin sub-commands (reload, force-delhome)
+    default: op
+
+  maynat-home.bypass.cooldown:
+    description: Bypass the teleport cooldown
+    default: op
+
+  maynat-home.bypass.warmup:
+    description: Bypass the warmup countdown
+    default: op
+
+  maynathome.bypass.limit:
+    description: Bypass the home limit (unlimited homes)
+    default: op

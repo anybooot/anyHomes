@@ -1,0 +1,168 @@
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                           Maynat-Home Menu Tutorial                ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+#
+# This file configures the homes menu layout. Below is a guide to placeholders
+# and item configuration options.
+#
+# ─── Internal Placeholders ─────────────────────────────────────────────────
+# These are built-in placeholders replaced by the plugin:
+#   <home>    - The display name of the home
+#   <world>   - The world name where the home is located
+#   <coords>  - Formatted coordinates (x, y, z)
+#   <count>   - Number of homes the player has
+#   <max>     - Maximum number of homes allowed (or ∞ if unlimited)
+#
+# ─── PlaceholderAPI Support ───────────────────────────────────────────────
+# All text fields (titles, display names, lore) support PlaceholderAPI placeholders.
+# Examples: %player_name%, %vault_eco_balance%, etc.
+#
+# ─── Item Configuration Options ───────────────────────────────────────────
+# material:     Material name (e.g., DIAMOND_SWORD, PLAYER_HEAD)
+# base64:       Base64 string for custom player head texture
+# display-name: Item name in MiniMessage format (supports placeholders)
+# lore:         List of lore lines in MiniMessage format (supports placeholders)
+# display-mode: BOTH (show name and lore), TITLE (name only), MESSAGE (lore only)
+# hide-details: true/false - Hide name and lore completely
+# hide_tooltip: true/false - Hide all tooltip info (name, lore, attributes, etc.)
+# item_flags:   List of ItemFlag names to hide (e.g., HIDE_ENCHANTS, HIDE_ATTRIBUTES)
+# action:       NONE, CLOSE, etc. (for static items)
+#
+# ─── Model Item Example ───────────────────────────────────────────────────
+# header:
+#   slot: 4
+#   material: ENDER_EYE
+#   display-name: "<gradient:#a855f7:#06b6d4><bold>Welcome, %player_name%!</bold></gradient>"
+#   lore:
+#     - "<gray>You have <count> homes out of <max>."
+#     - "<gray>Choose a home to teleport."
+#   hide_tooltip: false
+#   item_flags:
+#     - HIDE_ADDITIONAL_TOOLTIP
+#   action: NONE
+#
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║  Maynat-Home — menus/homes.yml                                       ║
+# ║  Alternate homes layout with centered entry design and clearer actions   ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# Inventory title — MiniMessage format, PAPI placeholders supported
+# Use <page> and <max> placeholders for page indicator (e.g., "Homes <page>/<max>")
+title: "<reset><gradient:#a855f7:#06b6d4><bold>✦ Homes Hub ✦</bold></gradient>"
+
+# Inventory size (rows × 9). Min 1, Max 6.
+rows: 5
+
+# ─── Home Slots Configuration ────────────────────────────────────────────────
+# Specify which slots homes can appear in. This allows you to reserve slots for
+# other items while giving homes a flexible grid.
+# If empty/not set, homes will fill from homes-start-slot automatically.
+home-slots: []
+# Example:
+#   - 10
+#   - 11
+#   - 12
+#   - 13
+#   - 14
+#   - 15
+#   - 16
+#   - 19
+#   - 20
+#   - 21
+#   - 22
+#   - 23
+#   - 24
+#   - 25
+
+# Which slot to start placing home entries in (0-indexed)
+# Only used if home-slots is empty/not defined
+homes-start-slot: 11
+
+# ─── Filler (border) ─────────────────────────────────────────────────────────
+filler:
+  enabled: true
+  material: BLACK_STAINED_GLASS_PANE
+  hide-details: true
+  item_flags:
+    - HIDE_ADDITIONAL_TOOLTIP
+
+# ─── Static items ────────────────────────────────────────────────────────────
+items:
+  header:
+    slot: 4
+    material: PLAYER_HEAD
+    base64: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZi5uZXQvdGV4dHVyZS8zMGI1YzUyYjM0MTc0OGI3M2U0NDI0NzcyN2NjZDFkZGIwZjViNzA4NjY3YzBjZDE5MzhlZjY4NzI4YjYifX19"
+    display-name: "<reset><gradient:#a855f7:#06b6d4><bold>✦ Homes Hub ✦</bold></gradient>"
+    lore:
+      - "<reset><gray>Welcome to your homes hub."
+      - "<reset><gray>Left-click to teleport, right-click to delete, middle-click to rename."
+    hide-details: false
+    item_flags:
+      - HIDE_ADDITIONAL_TOOLTIP
+    action: NONE
+
+  rename_info:
+    slot: 22
+    material: NAME_TAG
+    display-name: "<reset><gold><bold>Rename Home</bold></gold>"
+    lore:
+      - "<reset><gray>Middle-click any home to rename it instantly."
+      - "<reset><dark_gray>This works only in the homes menu."
+    action: NONE
+
+  help:
+    slot: 31
+    material: BOOK
+    display-name: "<reset><blue><bold>Help & Commands</bold></blue>"
+    lore:
+      - "<reset><gray>Learn how to use all commands."
+      - "<reset><gray>Click to open the help menu."
+    action: OPEN_HELP
+
+  close:
+    slot: 40
+    material: BARRIER
+    display-name: "<reset><red><bold>Close</bold></red>"
+    lore:
+      - "<reset><gray>Exit the menu without choosing a home."
+    action: CLOSE
+
+  # Navigation arrows for pagination (shown when there are multiple pages)
+  previous_page:
+    slot: 36
+    material: RED_CONCRETE
+    display-name: "<reset><red><bold>← Previous Page</bold></red>"
+    lore:
+      - "<reset><gray>Click to go to the previous page."
+      - "<reset><dark_gray>Current page: <page>/<max>"
+    action: PREVIOUS_PAGE
+
+  next_page:
+    slot: 44
+    material: GREEN_CONCRETE
+    display-name: "<reset><green><bold>Next Page →</bold></green>"
+    lore:
+      - "<reset><gray>Click to go to the next page."
+      - "<reset><dark_gray>Current page: <page>/<max>"
+    action: NEXT_PAGE
+
+# ─── Home item template ───────────────────────────────────────────────────────
+# This template is used for each home entry in the grid.
+# Placeholders: <home>, <world>, <coords>
+home-item:
+  material: LIME_BED
+  # Optional: use a Base64 skull texture instead of a material
+  base64: ""
+  display-mode: BOTH
+  hide-details: false
+  item_flags:
+    - HIDE_ADDITIONAL_TOOLTIP
+  display-name: "<reset><gradient:#a855f7:#06b6d4><bold><home></bold></gradient>"
+  lore:
+    - "<reset>"
+    - "<reset><dark_gray>World: <gray><world>"
+    - "<reset><dark_gray>Location: <gray><coords>"
+    - "<reset>"
+    - "<reset><green>Left-click <gray>to teleport"
+    - "<reset><red>Right-click <gray>to delete"
+    - "<reset><gold>Middle-click <gray>to rename"
