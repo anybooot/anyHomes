@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyHomes — High-End Home Management System Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --sidebar-bg: #11141a;
+            --card-bg: rgba(25, 30, 41, 0.65);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-grad: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+            --text-main: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-pink: #ff5f6d;
+            --accent-yellow: #ffc371;
+            --code-bg: #1e222b;
+            --green: #10b981;
+            --font-main: 'Outfit', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ─── Sidebar ───────────────────────────────────────────────────────────── */
+        aside {
+            width: 280px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            -webkit-text-fill-color: initial;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid var(--accent-pink);
+            padding-left: calc(1rem - 3px);
+        }
+
+        /* ─── Main Content ───────────────────────────────────────────────────────── */
+        main {
+            margin-left: 280px;
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        header {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2rem;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-grad);
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: '✦';
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* ─── Grid & Cards ──────────────────────────────────────────────────────── */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 95, 109, 0.4);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        /* ─── List & Requirements ─────────────────────────────────────────────────── */
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-pink);
+            font-weight: bold;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .badge.primary {
+            background: linear-gradient(135deg, rgba(255, 95, 109, 0.1) 0%, rgba(255, 195, 113, 0.1) 100%);
+            border-color: rgba(255, 95, 109, 0.25);
+            color: var(--accent-pink);
+        }
+
+        /* ─── Tables ────────────────────────────────────────────────────────────── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background-color: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #ff5f6d;
+        }
+
+        td code {
+            color: var(--accent-yellow);
+        }
+
+        /* ─── Config Panel ──────────────────────────────────────────────────────── */
+        .config-block {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            overflow-x: auto;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .comment {
+            color: var(--text-muted);
+        }
+
+        .key {
+            color: #ff5f6d;
+        }
+
+        .val {
+            color: #ffc371;
+        }
+
+        /* ─── Responsive ───────────────────────────────────────────────────────── */
+        @media (max-width: 900px) {
+            aside {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="logo">
+            Any<span>Homes</span>
+        </div>
+        <nav>
+            <a href="#overview" class="active">Overview</a>
+            <a href="#requirements">Requirements</a>
+            <a href="#commands">Commands & Permissions</a>
+            <a href="#placeholders">Placeholders System</a>
+            <a href="#colors">Color Formatting</a>
+            <a href="#gui">GUI & Pagination</a>
+        </nav>
+    </aside>
+
+    <main>
+        <header id="overview">
+            <h1>AnyHomes</h1>
+            <p>Premium & High-End Home Management System for modern Minecraft servers.</p>
+        </header>
+
+        <section>
+            <h2>Plugin Overview</h2>
+            <p>AnyHomes is an advanced, high-performance home teleporter and management plugin designed specifically for Paper, Purpur, and modern Minecraft server forks. Engineered with completely asynchronous database connections (SQLite & MySQL support), a YAML-driven GUI menu editor, and native LuckPerms support, it provides a seamless user experience while guaranteeing peak server performance.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Async Processing</h3>
+                    <p>Uses HikariCP pool database and Paper's asynchronous chunk loading. Zero lag, zero main-thread blockages.</p>
+                </div>
+                <div class="card">
+                    <h3>YAML Menus & Custom Slots</h3>
+                    <p>Create completely custom layouts, shapes, page slots, and action buttons. Decide exactly which slots display homes.</p>
+                </div>
+                <div class="card">
+                    <h3>Dynamic Permissions</h3>
+                    <p>Dynamic configuration allows changing permission nodes in real-time straight from config.yml.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="requirements">
+            <h2>System Requirements</h2>
+            <p>To run AnyHomes, your server must meet the following operational specifications:</p>
+            
+            <div class="badge-list">
+                <span class="badge primary">Java 21 or newer</span>
+                <span class="badge primary">Minecraft 1.21.x</span>
+                <span class="badge primary">Paper / Purpur API</span>
+            </div>
+
+            <ul>
+                <li><strong>Supported Software:</strong> Paper, Purpur, Folia, and Spigot (Paper or newer is highly recommended for asynchronous teleportation).</li>
+                <li><strong>LuckPerms (Soft Dependency):</strong> Required if you wish to configure group-based home limits (e.g. VIP groups having 10 homes while default users have 3) using the <code>home-limit</code> meta key.</li>
+                <li><strong>PlaceholderAPI (Soft Dependency):</strong> Hook into PlaceholderAPI to use standard server-wide placeholders inside the plugin's menus and messages.</li>
+            </ul>
+        </section>
+
+        <section id="commands">
+            <h2>Commands & Permissions</h2>
+            <p>AnyHomes employs a streamlined, flexible command layout. All permission nodes listed below are dynamic and can be customized inside <code>config.yml</code>.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Description</th>
+                        <th>Default Permission</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/home [name]</code></td>
+                        <td>Teleport to your home. Defaults to 'home'. Handles standby warmup countdowns.</td>
+                        <td><code>anyhomes.home</code></td>
+                        <td>Player</td>
+                    </tr>
+                    <tr>
+                        <td><code>/sethome [name]</code></td>
+                        <td>Set a home at your current location. Enforces home limits.</td>
+                        <td><code>anyhomes.sethome</code></td>
+                        <td>Player</td>
+                    </tr>
+                    <tr>
+                        <td><code>/delhome <name></code></td>
+                        <td>Delete a saved home. Open confirmation GUI if enabled.</td>
+                        <td><code>anyhomes.delhome</code></td>
+                        <td>Player</td>
+                    </tr>
+                    <tr>
+                        <td><code>/homes</code></td>
+                        <td>Opens the homes GUI list or prints a text list. Supports pagination and actions.</td>
+                        <td><code>anyhomes.list</code></td>
+                        <td>Player</td>
+                    </tr>
+                    <tr>
+                        <td><code>/homes <player>:[home]</code></td>
+                        <td>Teleport to a player's home, or list their homes if empty (Admin command).</td>
+                        <td><code>anyhomes.admin</code></td>
+                        <td>Admin</td>
+                    </tr>
+                    <tr>
+                        <td><code>/sethomes <player>:<home></code></td>
+                        <td>Set a home for another player at your location.</td>
+                        <td><code>anyhomes.admin</code></td>
+                        <td>Admin</td>
+                    </tr>
+                    <tr>
+                        <td><code>/delhomes <player>:<home></code></td>
+                        <td>Delete another player's home.</td>
+                        <td><code>anyhomes.admin</code></td>
+                        <td>Admin</td>
+                    </tr>
+                    <tr>
+                        <td><code>/anyhomes reload</code></td>
+                        <td>Reload all configurations, messages, and menu structures.</td>
+                        <td><code>anyhomes.admin</code></td>
+                        <td>Admin/Console</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="placeholders">
+            <h2>Placeholders System</h2>
+            <p>The plugin replaces placeholders dynamically inside its menus, lists, and messages.</p>
+            
+            <h3>Custom Local Placeholders</h3>
+            <ul>
+                <li><code>&lt;prefix&gt;</code> - The plugin prefix configured in messages.yml.</li>
+                <li><code>&lt;home&gt;</code> - Display name/identifier of the home.</li>
+                <li><code>&lt;world&gt;</code> - World name where the home resides.</li>
+                <li><code>&lt;coords&gt;</code> - Formatted coordinates <code>(x, y, z)</code>.</li>
+                <li><code>&lt;count&gt;</code> - Player's current total saved homes.</li>
+                <li><code>&lt;max&gt;</code> - Maximum homes player is allowed to create (or &infin; if unlimited).</li>
+                <li><code>&lt;seconds&gt;</code> - Leftover seconds on cooldowns/warmup bars.</li>
+                <li><code>&lt;player&gt;</code> - Target player's name.</li>
+            </ul>
+
+            <h3>PlaceholderAPI Integration</h3>
+            <p>All GUI titles, items, lore lines, chat messages, titles, and action bars fully support PlaceholderAPI formatting, enabling placeholders like <code>%player_name%</code>, <code>%vault_eco_balance%</code>, or <code>%essentials_nickname%</code> natively.</p>
+        </section>
+
+        <section id="colors">
+            <h2>Advanced Color System</h2>
+            <p>AnyHomes supports all modern Minecraft color formatting options out-of-the-box. We use an intelligent character scanner to ensure custom hexadecimal gradients do not clash with raw hex formatting codes.</p>
+
+            <ul>
+                <li><strong>MiniMessage Gradients:</strong> <code>&lt;gradient:#ff5f6d:#ffc371&gt;&lt;bold&gt;Sunset Gradient&lt;/bold&gt;&lt;/gradient&gt;</code></li>
+                <li><strong>MiniMessage Hex:</strong> <code>&lt;#ffffff&gt;Hex White&lt;/#ffffff&gt;</code> or simply <code>&lt;#ff0000&gt;Red Text</code></li>
+                <li><strong>Standard Alternate Codes:</strong> Legacy styling like <code>&7Gray Text</code>, <code>&c&lBold Red</code></li>
+                <li><strong>Standard Legacy Color Characters:</strong> Legacy formatting symbols (<code>§7Gray Text</code>)</li>
+                <li><strong>Raw Hex Format:</strong> Quick hex codes like <code>#ff0000Red Text</code></li>
+            </ul>
+        </section>
+
+        <section id="gui">
+            <h2>YAML GUI Customization & Pagination</h2>
+            <p>Configure inventories directly in files inside the <code>menus/</code> folder. Set sizes, materials, custom player head base64 textures, item actions, and pagination rules easily.</p>
+            <p>By default, homes are set to display inside slots <code>20, 21, 22, 23, 24</code>. If a player exceeds 5 homes, the plugin automatically creates a new page, enabling pagination actions on the margins (arrows) to browse residences page-by-page.</p>
+
+            <div class="config-block">
+                <span class="comment"># Example home slots and item config in homes.yml</span><br>
+                <span class="key">rows</span>: <span class="val">5</span><br>
+                <span class="key">home-slots</span>:<br>
+                &nbsp;&nbsp;- <span class="val">20</span><br>
+                &nbsp;&nbsp;- <span class="val">21</span><br>
+                &nbsp;&nbsp;- <span class="val">22</span><br>
+                &nbsp;&nbsp;- <span class="val">23</span><br>
+                &nbsp;&nbsp;- <span class="val">24</span><br>
+                <span class="key">items</span>:<br>
+                &nbsp;&nbsp;<span class="key">help</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">slot</span>: <span class="val">42</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">material</span>: <span class="val">COMPASS</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">display-name</span>: <span class="val">"&lt;reset&gt;&lt;gradient:#ff5f6d:#ffc371&gt;&lt;bold&gt;Help &amp; Commands&lt;/bold&gt;&lt;/gradient&gt;"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">action</span>: <span class="val">OPEN_HELP</span>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple active menu highlight on scroll
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

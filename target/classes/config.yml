@@ -1,7 +1,36 @@
-# ╔═══════════════════════════════════════════════════════════╗
-# ║           Maynat-Home — config.yml                    ║
-# ║  High-End Home Management System  |  v1.0.0              ║
-# ╚═══════════════════════════════════════════════════════════╝
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                       AnyHomes — config.yml Tutorial                      ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+#
+# Welcome to the AnyHomes main configuration!
+# Below is a detailed guide explaining how to customize the plugin.
+#
+# ─── Color Formatting ──────────────────────────────────────────────────────
+# You can use standard formatting codes like & or §, raw hex like #ffffff,
+# and Adventure MiniMessage gradients:
+#   Examples:
+#     - "&aGreen Text"
+#     - "#a855f7Purple Text"
+#     - "<gradient:#a855f7:#06b6d4><bold>Gradient Text</bold></gradient>"
+#
+# ─── Permissions ───────────────────────────────────────────────────────────
+# Change these values to customize the permission nodes required for commands:
+#   - use: Permission to use the main /anyhomes command.
+#   - sethome: Permission to save a home (/sethome).
+#   - sethomes: Permission to set another player's home (/sethomes).
+#   - home: Permission to teleport to a home (/home).
+#   - delhome: Permission to delete a home (/delhome).
+#   - delhomes: Permission to delete another player's home (/delhomes).
+#   - list: Permission to list homes (/homes).
+#   - admin: Permission to manage other players' homes and reload configurations.
+#
+# ─── Bypass Permissions ─────────────────────────────────────────────────────
+# Players with these permissions will bypass limitations:
+#   - limit: Bypass the home limit (allows unlimited homes).
+#   - cooldown: Bypass the teleport cooldown timer.
+#   - warmup: Bypass the standby warmup countdown timer.
+#
+# ╔═══════════════════════════════════════════════════════════════════════════╗
 
 # ─── Database ────────────────────────────────────────────────────────────────
 database:
@@ -11,7 +40,7 @@ database:
   mysql:
     host: localhost
     port: 3306
-    database: m_home
+    database: anyhomes
     user: root
     password: ''
     ssl: false
@@ -33,11 +62,11 @@ homes:
 # ─── Teleport ────────────────────────────────────────────────────────────────
 teleport:
   # Warmup countdown (seconds) before teleportation. Set to 0 to disable.
-  # Bypass permission: maynathome.bypass.warmup
+  # Bypass permission: anyhomes.bypass.warmup
   warmup-seconds: 3
 
   # Cooldown (seconds) between teleportations. Set to 0 to disable.
-  # Bypass permission: maynathome.bypass.cooldown
+  # Bypass permission: anyhomes.bypass.cooldown
   cooldown-seconds: 30
 
   # Maximum allowed movement (blocks) during warmup before cancellation.
@@ -60,21 +89,23 @@ gui:
     # Page indicator format: use <page> for current page and <max> for max pages
     page-indicator-format: " <page>/<max>"
 
-# ─── Permissions ─────────────────────────────────────────────────────────────
+# ─── Dynamic Permissions ─────────────────────────────────────────────────────
 permissions:
   # Permission to use the main command
-  use: "maynat-home.use"
+  use: "anyhomes.use"
 
   # Sub-command permissions
-  sethome: "maynat-home.sethome"
-  home: "maynat-home.home"
-  delhome: "maynat-home.delhome"
-  rename: "maynat-home.rename"
-  list: "maynat-home.list"
-  admin: "maynat-home.admin"
+  sethome: "anyhomes.sethome"
+  sethomes: "anyhomes.sethomes"
+  home: "anyhomes.home"
+  delhome: "anyhomes.delhome"
+  delhomes: "anyhomes.delhomes"
+  rename: "anyhomes.rename"
+  list: "anyhomes.list"
+  admin: "anyhomes.admin"
 
   # Bypass permissions
   bypass:
-    limit: "maynat-home.bypass.limit"
-    cooldown: "maynat-home.bypass.cooldown"
-    warmup: "maynat-home.bypass.warmup"
+    limit: "anyhomes.bypass.limit"
+    cooldown: "anyhomes.bypass.cooldown"
+    warmup: "anyhomes.bypass.warmup"

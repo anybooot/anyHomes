@@ -1,65 +1,89 @@
-# ╔═══════════════════════════════════════════════════════════╗
-# ║        Maynat-Home — messages.yml                        ║
-# ║  All plugin strings. MiniMessage format supported.       ║
-# ║  Gradients, hex colors, and PAPI placeholders work here. ║
-# ╚═══════════════════════════════════════════════════════════╝
-# MiniMessage reference: https://docs.advntr.dev/minimessage/
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                      AnyHomes — messages.yml Tutorial                     ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+#
+# Welcome to the AnyHomes message configuration!
+# Below is a detailed guide on how to configure your chat, title, and action bar messages.
+#
+# ─── Color Formatting Options ──────────────────────────────────────────────
+# You can use any of the following color formats in any message:
+#
+# 1. MiniMessage / Adventure Format:
+#    - Named Colors:   <red>Message</red>, <gold>Message</gold>
+#    - Custom Hex:     <#ff0000>Message</#ff0000>
+#    - Gradients:      <gradient:#ff5f6d:#ffc371><bold>Glow Message</bold></gradient>
+#    - Decorative:     <bold>, <italic>, <underlined>, <strikethrough>, <obfuscated>, <reset>
+#
+# 2. Legacy Alternate Codes (&):
+#    - Standard:       &7Message, &aMessage, &c&lBold Red Message
+#    - Legacy Hex:     &#ff0000Message
+#
+# 3. Standard Legacy Codes (§):
+#    - Standard:       §7Message, §aMessage
+#    - Standard Hex:   §#ff0000Message
+#
+# 4. Raw Hex Codes (#):
+#    - Standard:       #ff0000Red Message
+#
+# ╔═══════════════════════════════════════════════════════════════════════════╗
 
 # ─── Prefix ──────────────────────────────────────────────────────────────────
-prefix: "<dark_gray>[</dark_gray><gradient:#00fbff:#0072ff><bold>MaynatHome</bold></gradient><dark_gray>]</dark_gray> "
+prefix: "<dark_gray>● </dark_gray><gradient:#ff5f6d:#ffc371><bold>AnyHomes</bold></gradient> <dark_gray>»</dark_gray> "
 
 # ─── General ─────────────────────────────────────────────────────────────────
 general:
-  no-permission:     "<prefix><red>You don't have permission to do that."
-  player-only:       "<prefix><red>This command can only be run by a player."
-  unknown-command:   "<prefix><red>Unknown command. Use <gold>/maynat-home</gold> for help."
-  error:             "<prefix><red>An internal error occurred. Please contact an administrator."
+  no-permission:     "<prefix><#ff5f6d>You do not have permission to execute this action."
+  player-only:       "<prefix><#ff5f6d>This command can only be executed by players."
+  unknown-command:   "<prefix><gray>Unknown command. Try <gradient:#ff5f6d:#ffc371>/anyhomes</gradient> for help."
+  error:             "<prefix><#ff5f6d>An internal error occurred. Please contact administration."
 
 # ─── Home ────────────────────────────────────────────────────────────────────
 home:
   # /sethome
-  set:             "<prefix><gradient:#00fbff:#0072ff>Home <bold><home></bold></gradient> <green>has been set!"
-  set-failed:      "<prefix><red>Failed to save your home. Please try again."
-  invalid-name:    "<prefix><red>Invalid home name. Use only letters, numbers, <gray>-</gray> and <gray>_</gray> (max 32 chars)."
-  limit-reached:   "<prefix><red>You have reached your home limit <gold>(<limit> homes)</gold>."
-  rename.prompt:   "<prefix><gray>Type the new name for <gold><home></gold> in chat, or type <white>cancel</white> to abort."
-  rename.success:  "<prefix><green>Home <gold><old></gold> has been renamed to <gold><new></gold>."
-  rename.exists:   "<prefix><red>A home with that name already exists. Pick a different name."
+  set:             "<prefix><gray>Home <gradient:#ff5f6d:#ffc371><bold><home></bold></gradient> has been successfully set!"
+  set-failed:      "<prefix><#ff5f6d>Failed to save your home. Please try again."
+  invalid-name:    "<prefix><#ff5f6d>Invalid home name. Use only alphanumeric characters, <gray>-</gray> and <gray>_</gray> (max 32 chars)."
+  limit-reached:   "<prefix><#ff5f6d>You have reached your home limit <gray>(max <gradient:#ff5f6d:#ffc371><limit></gradient> homes)</gray>."
+  rename.prompt:   "<prefix><gray>Please type the new name for <gradient:#ff5f6d:#ffc371><home></gradient> in chat, or type <#ff5f6d>cancel</#ff5f6d> to abort."
+  rename.success:  "<prefix><gray>Home <gradient:#ff5f6d:#ffc371><old></gradient> has been renamed to <gradient:#ff5f6d:#ffc371><new></gradient>."
+  rename.exists:   "<prefix><#ff5f6d>A home with that name already exists. Pick a different name."
   rename.cancelled: "<prefix><gray>Home rename cancelled."
-  rename.nochange:  "<prefix><gray>The home name was unchanged." 
+  rename.nochange:  "<prefix><gray>The home name remains unchanged." 
 
   # /home
-  not-found:       "<prefix><red>Home <gold><home></gold> was not found."
-  teleported:      "<prefix><gradient:#00fbff:#0072ff>Teleported to home <bold><home></bold>.</gradient>"
-  teleport-failed: "<prefix><red>Teleportation failed. Is the world loaded?"
+  not-found:       "<prefix><#ff5f6d>Home <gray><home></gray> was not found."
+  teleported:      "<prefix><gray>Teleported to home <gradient:#ff5f6d:#ffc371><bold><home></bold></gradient>."
+  teleport-failed: "<prefix><#ff5f6d>Teleportation failed. Is the target world loaded?"
 
-  warmup-start:    "<prefix><gray>Stand still for <gradient:#00fbff:#0072ff><bold><seconds>s</bold></gradient><gray> to teleport to <white><home></white>..."
-  warmup-cancelled: "<prefix><red>Teleportation cancelled — <bold>you moved!</bold>"
+  warmup-start:    "<prefix><gray>Stand still for <gradient:#ff5f6d:#ffc371><bold><seconds>s</bold></gradient> to teleport to <gradient:#ff5f6d:#ffc371><home></gradient>..."
+  warmup-cancelled: "<prefix><#ff5f6d>Teleportation cancelled — you moved!"
 
-  cooldown:        "<prefix><red>You must wait <gold><seconds>s</gold> before teleporting again."
+  cooldown:        "<prefix><#ff5f6d>You must wait <gradient:#ff5f6d:#ffc371><seconds>s</gradient> before teleporting again."
 
   # /delhome
-  deleted:         "<prefix><red>Home <gold><home></gold> has been deleted."
+  deleted:         "<prefix><gray>Home <gradient:#ff5f6d:#ffc371><home></gradient> has been deleted."
   delhome-usage:   "<prefix><gray>Usage: <white>/delhome <name></white>"
 
   # /list
   list-empty:      "<prefix><gray>You have no homes set. Use <white>/sethome [name]</white> to create one."
-  list-header:     "<newline><gradient:#00fbff:#0072ff>━━━ Your Homes (<count>) ━━━</gradient>"
-  list-entry:      " <dark_gray>▸</dark_gray> <gradient:#00fbff:#0072ff><home></gradient> <dark_gray>|</dark_gray> <gray><world> <dark_gray>(<coords>)</dark_gray>"
+  list-header:     "<newline><gradient:#ff5f6d:#ffc371>━━━ Your Homes (<count>) ━━━</gradient>"
+  list-entry:      " <dark_gray>▸</dark_gray> <gradient:#ff5f6d:#ffc371><home></gradient> <dark_gray>| <gray><world> <dark_gray>(<coords>)</dark_gray>"
 
 # ─── Admin ───────────────────────────────────────────────────────────────────
 admin:
   usage: |
-    <gradient:#00fbff:#0072ff>━━━ MaynatHome Admin ━━━</gradient>
-    <gray>/maynat-home admin reload</gray>
-    <gray>/maynat-home admin delhome <player> <home></gray>
-    <gray>/maynat-home admin home <player> [home]</gray>
+    <gradient:#ff5f6d:#ffc371>━━━ AnyHomes Admin ━━━</gradient>
+    <gray>▸ /anyhomes reload</gray>
+    <gray>▸ /homes <player>:<home> or /homes <player>:</gray>
+    <gray>▸ /delhomes <player>:<home></gray>
+    <gray>▸ /sethomes <player>:<home></gray>
   reloaded:          "<prefix><green>Configuration and menus reloaded successfully."
-  player-not-found:  "<prefix><red>Player <gold><player></gold> not found."
-  home-deleted:      "<prefix><green>Deleted home <gold><home></gold> for <white><player></white>."
-  home-not-found:    "<prefix><red>Player <gold><player></gold> has no home named <white><home></white>."
-  delhome-usage:     "<prefix><gray>Usage: <white>/maynat-home admin delhome <player> <home></white>"
-  home-usage:        "<prefix><gray>Usage: <white>/maynat-home admin home <player> [home]</white>"
+  player-not-found:  "<prefix><#ff5f6d>Player <gradient:#ff5f6d:#ffc371><player></gradient> not found."
+  home-deleted:      "<prefix><green>Deleted home <gradient:#ff5f6d:#ffc371><home></gradient> for <white><player></white>."
+  home-set:          "<prefix><green>Home <gradient:#ff5f6d:#ffc371><home></gradient> has been set for <white><player></white>."
+  home-not-found:    "<prefix><#ff5f6d>Player <gradient:#ff5f6d:#ffc371><player></gradient> has no home named <white><home></white>."
+  delhomes-usage:    "<prefix><gray>Usage: <white>/delhomes <player>:<home></white>"
+  sethomes-usage:    "<prefix><gray>Usage: <white>/sethomes <player>:<home></white>"
   player-no-homes:   "<prefix><gray>Player <white><player></white> has no homes set."
-  player-homes-header: "<newline><gradient:#00fbff:#0072ff>━━━ Homes of <player> (<count>) ━━━</gradient>"
-  teleported-to-home: "<prefix><gradient:#00fbff:#0072ff>Teleported to <bold><home></bold> of <white><player></white>.</gradient>"
+  player-homes-header: "<newline><gradient:#ff5f6d:#ffc371>━━━ Homes of <player> (<count>) ━━━</gradient>"
+  teleported-to-home: "<prefix><gray>Teleported to <gradient:#ff5f6d:#ffc371><bold><home></bold></gradient> of <white><player></white>."

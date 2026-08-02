@@ -1,65 +1,64 @@
 # ╔═══════════════════════════════════════════════════════════════════════════╗
-# ║                           Maynat-Home Help Menu                       ║
-# ╚═══════════════════════════════════════════════════════════════════════════╝
+# ║                            AnyHomes Help Layout                           ║
+# ╚═══════════════════════════════════════════════════════════════════════════╗
+#
+# This file configures the help menu layout.
+#
+# ╔═══════════════════════════════════════════════════════════════════════════╗
 
-# Inventory title — MiniMessage format, PAPI placeholders supported
-title: "<reset><gradient:#a855f7:#06b6d4><bold>✦ Help & Commands ✦</bold></gradient>"
-
-# Inventory size (rows × 9). Min 1, Max 6.
+title: "<reset><gradient:#ff5f6d:#ffc371><bold>✦ Help & Commands ✦</bold></gradient>"
 rows: 4
 
-# ─── Filler (border) ─────────────────────────────────────────────────────────
 filler:
   enabled: true
-  material: BLACK_STAINED_GLASS_PANE
+  material: GRAY_STAINED_GLASS_PANE
   hide-details: true
   item_flags:
     - HIDE_ADDITIONAL_TOOLTIP
 
-# ─── Static items ────────────────────────────────────────────────────────────
 items:
   header:
     slot: 4
-    material: BOOK
-    display-name: "<reset><gradient:#a855f7:#06b6d4><bold>✦ Help & Commands ✦</bold></gradient>"
+    material: WRITABLE_BOOK
+    display-name: "<reset><gradient:#ff5f6d:#ffc371><bold>✦ Help & Commands ✦</bold></gradient>"
     lore:
-      - "<reset><gray>Learn how to use Maynat-Home commands."
+      - "<reset><gray>Learn how to use AnyHomes commands."
       - "<reset><gray>All commands are listed below."
     action: NONE
 
   sethome:
     slot: 10
-    material: BED
-    display-name: "<reset><green><bold>/sethome [name]</bold></green>"
+    material: OAK_SIGN
+    display-name: "<reset><gradient:#ff5f6d:#ffc371><bold>/sethome [name]</bold></gradient>"
     lore:
       - "<reset><gray>Sets your current location as a home."
       - "<reset><gray>If no name is provided, uses 'home'."
-      - "<reset><gray>Example: <white>/sethome myhome</white>"
+      - "<reset><dark_gray>Example: <white>/sethome myhome</white>"
     action: NONE
 
   home:
     slot: 11
     material: COMPASS
-    display-name: "<reset><green><bold>/home [name]</bold></green>"
+    display-name: "<reset><gradient:#ff5f6d:#ffc371><bold>/home [name]</bold></gradient>"
     lore:
       - "<reset><gray>Teleports you to a saved home."
       - "<reset><gray>If no name is provided, uses 'home'."
-      - "<reset><gray>Example: <white>/home myhome</white>"
+      - "<reset><dark_gray>Example: <white>/home myhome</white>"
     action: NONE
 
   delhome:
     slot: 12
-    material: BARRIER
-    display-name: "<reset><green><bold>/delhome <name></bold></green>"
+    material: FLINT_AND_STEEL
+    display-name: "<reset><gradient:#ff5f6d:#ffc371><bold>/delhome <name></bold></gradient>"
     lore:
       - "<reset><gray>Deletes a saved home."
-      - "<reset><gray>Example: <white>/delhome myhome</white>"
+      - "<reset><dark_gray>Example: <white>/delhome myhome</white>"
     action: NONE
 
   homes:
     slot: 13
-    material: CHEST
-    display-name: "<reset><green><bold>/homes</bold></green>"
+    material: ENDER_CHEST
+    display-name: "<reset><gradient:#ff5f6d:#ffc371><bold>/homes</bold></gradient>"
     lore:
       - "<reset><gray>Opens the homes menu to manage your homes."
       - "<reset><gray>You can teleport, delete, or rename homes here."
@@ -67,16 +66,16 @@ items:
 
   back:
     slot: 31
-    material: ARROW
-    display-name: "<reset><yellow><bold>Back to Homes</bold></yellow>"
+    material: FEATHER
+    display-name: "<reset><gradient:#ff5f6d:#ffc371><bold>Back to Homes</bold></gradient>"
     lore:
       - "<reset><gray>Return to the homes menu."
     action: BACK_TO_HOMES
 
   close:
     slot: 35
-    material: BARRIER
-    display-name: "<reset><red><bold>Close</bold></red>"
+    material: REDSTONE
+    display-name: "<reset><#ff5f6d><bold>Close Menu</bold></#ff5f6d>"
     lore:
       - "<reset><gray>Close this menu."
     action: CLOSE
