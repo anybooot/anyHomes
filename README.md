@@ -4,8 +4,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/status-active-success?style=for-the-badge&color=00c6ff" alt="Status">
-  <img src="https://img.shields.io/badge/version-v2.1.0-blue?style=for-the-badge&color=7b2ffc" alt="Version">
-  <img src="https://img.shields.io/badge/Minecraft-1.21.x-orange?style=for-the-badge" alt="Minecraft">
+  <img src="https://img.shields.io/badge/version-v1.1.0-blue?style=for-the-badge&color=7b2ffc" alt="Version">
+  <img src="https://img.shields.io/badge/Minecraft-26.3-orange?style=for-the-badge" alt="Minecraft">
   <img src="https://img.shields.io/badge/Java-21%2B-informational?style=for-the-badge" alt="Java">
 </p>
 
