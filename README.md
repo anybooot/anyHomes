@@ -32,12 +32,12 @@
 To run AnyHomes, your server must meet these specifications:
 
 * **Java Version:** `Java 21+`
-* **Game Version:** `Minecraft 1.21.x`[cite: 3]
-* **Server Software:** `Paper / Purpur`[cite: 3] (Paper+ recommended for async teleportation).
+* **Game Version:** `Minecraft 1.21.x - 26.3`
+* **Server Software:** `Paper / Purpur` (Paper recommended for async teleportation).
 
 > **Dependencies (Soft):**
-> * **LuckPerms:** Required for group-based home limits via the `home-limit` meta key[cite: 3].
-> * **PlaceholderAPI:** Use server-wide placeholders inside menus and messages[cite: 3].
+> * **LuckPerms:** Required for group-based home limits via the `home-limit` meta key.
+> * **PlaceholderAPI:** Use server-wide placeholders inside menus and messages.
 
 ---
 
@@ -47,14 +47,14 @@ AnyHomes uses a flexible command layout. All permission nodes are dynamic and ca
 
 | Command | Description | Default Permission | Type |
 | :--- | :--- | :--- | :---: |
-| `/home [name]` | Teleport to your home. Defaults to 'home'. | `anyhomes.home`[cite: 3] | 👤 Player |
-| `/sethome [name]` | Set a home at your current location. | `anyhomes.sethome`[cite: 3] | 👤 Player |
-| `/delhome <name>` | Delete a saved home with confirmation. | `anyhomes.delhome`[cite: 3] | 👤 Player |
-| `/homes` | Open the homes GUI list with pagination. | `anyhomes.list`[cite: 3] | 👤 Player |
-| `/homes <player>:[home]` | Teleport to a player's home, or list theirs. | `anyhomes.admin`[cite: 3] | 🛡️ Admin |
-| `/sethomes <player>:<home>` | Set a home for another player at your location. | `anyhomes.admin`[cite: 3] | 🛡️ Admin |
-| `/delhomes <player>:<home>` | Delete another player's home. | `anyhomes.admin`[cite: 3] | 🛡️ Admin |
-| `/anyhomes reload` | Reload configs, messages, and menus. | `anyhomes.admin`[cite: 3] | 🛡️ Admin |
+| `/home [name]` | Teleport to your home. Defaults to 'home'. | `anyhomes.home` | 👤 Player |
+| `/sethome [name]` | Set a home at your current location. | `anyhomes.sethome` | 👤 Player |
+| `/delhome <name>` | Delete a saved home with confirmation. | `anyhomes.delhome` | 👤 Player |
+| `/homes` | Open the homes GUI list with pagination. | `anyhomes.list` | 👤 Player |
+| `/homes <player>:[home]` | Teleport to a player's home, or list theirs. | `anyhomes.admin` | 🛡️ Admin |
+| `/sethomes <player>:<home>` | Set a home for another player at your location. | `anyhomes.admin` | 🛡️ Admin |
+| `/delhomes <player>:<home>` | Delete another player's home. | `anyhomes.admin` | 🛡️ Admin |
+| `/anyhomes reload` | Reload configs, messages, and menus. | `anyhomes.admin` | 🛡️ Admin |
 
 ---
 
@@ -73,7 +73,7 @@ AnyHomes dynamically replaces placeholders inside menus, messages, and chat outp
 <code>&lt;player&gt;</code> <ins>target player</ins>[cite: 3]
 
 #### PlaceholderAPI Integration
-All GUI titles, item lore, chat messages, titles, and action bars support PlaceholderAPI placeholders like `%player_name%`, `%vault_eco_balance%`, or `%essentials_nickname%`[cite: 3].
+All GUI titles, item lore, chat messages, titles, and action bars support PlaceholderAPI placeholders like `%player_name%`, `%vault_eco_balance%`, or `%essentials_nickname%`.
 
 ---
 
@@ -81,18 +81,18 @@ All GUI titles, item lore, chat messages, titles, and action bars support Placeh
 
 AnyHomes supports all modern Minecraft color formats with an intelligent parser that handles hexadecimal gradients, MiniMessage, and legacy codes[cite: 3].
 
-* **MiniMessage Gradients:** `<gradient:#00c6ff:#7b2ffc>Bold Gradient</gradient>`[cite: 3]
-* **MiniMessage Hex:** `<#ffffff>White Text</#ffffff>`[cite: 3]
-* **Legacy Codes:** `&7Gray` &middot; `&c&lBold Red`[cite: 3]
-* **Raw Hex:** `#ff0000Red Text`[cite: 3]
+* **MiniMessage Gradients:** `<gradient:#00c6ff:#7b2ffc>Bold Gradient</gradient>`
+* **MiniMessage Hex:** `<#ffffff>White Text</#ffffff>`
+* **Legacy Codes:** `&7Gray` &middot; `&c&lBold Red`
+* **Raw Hex:** `#ff0000Red Text`
 
 ---
 
 ### 05 ▣ YAML GUI & Pagination
 
-Customize inventories directly in the `menus/` folder. Set rows, materials, player-head textures, item actions, and pagination rules[cite: 3].
+Customize inventories directly in the `menus/` folder. Set rows, materials, player-head textures, item actions, and pagination rules.
 
-By default, homes occupy slots `20–24`. When a player has more than 5 homes, the plugin automatically paginates, with arrow controls to browse pages[cite: 3].
+By default, homes occupy slots `20–24`. When a player has more than 5 homes, the plugin automatically paginates, with arrow controls to browse pages.
 
 ```yaml
 # Example from menus/homes.yml
