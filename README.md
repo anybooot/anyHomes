@@ -60,7 +60,7 @@ AnyHomes uses a flexible command layout. All permission nodes are dynamic and ca
 
 ### 03 ◈ Placeholder System
 
-AnyHomes dynamically replaces placeholders inside menus, messages, and chat outputs. Both local and PlaceholderAPI placeholders are supported[cite: 3].
+AnyHomes dynamically replaces placeholders inside menus, messages, and chat outputs. Both local and PlaceholderAPI placeholders are supported.
 
 #### Local Placeholders
 <code>&lt;prefix&gt;</code> <ins>plugin prefix</ins> &nbsp;&bull;&nbsp; 
@@ -70,7 +70,7 @@ AnyHomes dynamically replaces placeholders inside menus, messages, and chat outp
 <code>&lt;count&gt;</code> <ins>homes count</ins> &nbsp;&bull;&nbsp; 
 <code>&lt;max&gt;</code> <ins>max homes</ins> &nbsp;&bull;&nbsp; 
 <code>&lt;seconds&gt;</code> <ins>cooldown / warmup</ins> &nbsp;&bull;&nbsp; 
-<code>&lt;player&gt;</code> <ins>target player</ins>[cite: 3]
+<code>&lt;player&gt;</code> <ins>target player</ins>
 
 #### PlaceholderAPI Integration
 All GUI titles, item lore, chat messages, titles, and action bars support PlaceholderAPI placeholders like `%player_name%`, `%vault_eco_balance%`, or `%essentials_nickname%`.
@@ -79,7 +79,7 @@ All GUI titles, item lore, chat messages, titles, and action bars support Placeh
 
 ### 04 ✦ Advanced Color System
 
-AnyHomes supports all modern Minecraft color formats with an intelligent parser that handles hexadecimal gradients, MiniMessage, and legacy codes[cite: 3].
+AnyHomes supports all modern Minecraft color formats with an intelligent parser that handles hexadecimal gradients, MiniMessage, and legacy codes.
 
 * **MiniMessage Gradients:** `<gradient:#00c6ff:#7b2ffc>Bold Gradient</gradient>`
 * **MiniMessage Hex:** `<#ffffff>White Text</#ffffff>`
