@@ -43,7 +43,7 @@ To run AnyHomes, your server must meet these specifications:
 
 ### 02 ⌨ Commands & Permissions
 
-AnyHomes uses a flexible command layout. All permission nodes are dynamic and can be customized inside `config.yml`[cite: 3].
+AnyHomes uses a flexible command layout. All permission nodes are dynamic and can be customized inside `config.yml`.
 
 | Command | Description | Default Permission | Type |
 | :--- | :--- | :--- | :---: |
