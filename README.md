@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/status-active-success?style=for-the-badge&color=00c6ff" alt="Status">
-  <img src="https://img.shields.io/badge/version-v1.1.0-blue?style=for-the-badge&color=7b2ffc" alt="Version">
+  <img src="https://camo.githubusercontent.com/ef171d7e6aeb1f3462cc0dae5f6698a4528fbc6e92b45589b23efacfd6eb81d0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f76657273696f6e2d76312e312e302d626c75653f7374796c653d666f722d7468652d626164676526636f6c6f723d376232666663" alt="Version">
   <img src="https://img.shields.io/badge/Minecraft-26.3-orange?style=for-the-badge" alt="Minecraft">
   <img src="https://img.shields.io/badge/Java-21%2B-informational?style=for-the-badge" alt="Java">
 </p>
